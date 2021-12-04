@@ -1,0 +1,82 @@
+﻿<Window x:Class="ProyectoFinalAplicada.UI.Consultas.cUsuarios"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProyectoFinalAplicada.UI.Consultas"
+        mc:Ignorable="d"
+        Title="Consultar Usuarios" Height="500" Width="900" Background="LightGray" WindowStartupLocation="CenterScreen">
+    <Grid Background="White">
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="150"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="150"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Fecha Desde" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold"/>
+        <DatePicker x:Name="DesdeDateTimePicker"  Height="34" Grid.Row="1" Grid.Column ="0" VerticalAlignment="Top" HorizontalAlignment="Left"></DatePicker>
+        <TextBlock Text="Fecha Hasta" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold"/>
+        <DatePicker x:Name="HastaDateTimePicker"  Height="34" Grid.Column="1" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Center" ></DatePicker>
+
+        <TextBlock Text="Filtrar" Grid.Row="0" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold"/>
+        <ComboBox Name="FiltrarComboBox" Height="34" Grid.Column="2" Grid.Row="1" VerticalAlignment="Top">
+            <ComboBoxItem Content="TODO"/>
+            <ComboBoxItem Content="Usuario Id"/>
+            <ComboBoxItem Content="Nombre"/>
+            <ComboBoxItem Content="Apellido"/>
+            <ComboBoxItem Content="Cedula"/>
+            <ComboBoxItem Content="Sexo"/>
+            <ComboBoxItem Content="Dirección"/>
+            <ComboBoxItem Content="Telefono"/>
+            <ComboBoxItem Content="Celular"/>
+            <ComboBoxItem Content="Email"/>
+            <ComboBoxItem Content="Tipo Usuario"/>
+            <ComboBoxItem Content="Nombre Usuario"/>
+            <ComboBoxItem Content="Fecha Ingreso"/>
+        </ComboBox>
+
+        <TextBlock Text="Criterio" Grid.Row="0" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold"/>
+        <TextBox Name="CriterioTextBox" Grid.Column="3" BorderBrush="Black" Grid.Row="1" VerticalAlignment="Top" Height="34"></TextBox>
+
+        <Button Name="ConsultarButton" Height="34" Width="146"
+               HorizontalContentAlignment="Right" Grid.Row="1" 
+                Click="ConsultarButton_Click" Grid.Column="4" VerticalAlignment="Top"
+                
+                HorizontalAlignment="Center">
+            <Button.Background>
+                <ImageBrush Stretch="Uniform" AlignmentX="Left"  ImageSource="/Resources/buscar (1).png"/>
+
+            </Button.Background>
+            Consultar
+        </Button>
+
+        <DataGrid Name="ConsultarDataGrid" AutoGenerateColumns="False" Grid.Row="2" Grid.ColumnSpan="5" Grid.Column="0" Margin="0,0,-150,-215">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="UsuarioId" Width="55" Binding="{Binding UsuarioId}"/>
+                <DataGridTextColumn Header="Nombres" Width="80" Binding="{Binding Nombres}"/>
+                <DataGridTextColumn Header="Apellidos" Width="80" Binding="{Binding Apellidos}"/>
+                <DataGridTextColumn Header="Cedula" Width="55" Binding="{Binding Cedula}"/>
+                <DataGridTextColumn Header="Sexo" Width="55" Binding="{Binding Sexo}"/>
+                <DataGridTextColumn Header="Telefono" Width="55" Binding="{Binding Telefono}"/>
+                <DataGridTextColumn Header="Celular" Width="55" Binding="{Binding Celular}"/>
+                <DataGridTextColumn Header="Direccion" Width="55" Binding="{Binding Direccion}"/>
+                <DataGridTextColumn Header="Email" Width="70" Binding="{Binding Email}"/>
+                <DataGridTextColumn Header="Tipo de Usuario" Width="90" Binding="{Binding TipoUsuario}"/>
+                <DataGridTextColumn Header="Fecha Ingreso" Width="90" Binding="{Binding FechaIngreso}"/>
+                <DataGridTextColumn Header="Nombre de Usuario" Width="70" Binding="{Binding NombreUsuario}"/>
+                <DataGridTextColumn Header="Contraseña" Width="80" Binding="{Binding Contrasena}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+
+    </Grid>
+</Window>
