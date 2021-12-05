@@ -92,7 +92,7 @@ namespace ProyectoFinalAplicada.Migrations
             migrationBuilder.InsertData(
                 table: "Usuarios",
                 columns: new[] { "UsuarioId", "Apellidos", "Cedula", "Celular", "Contrasena", "Direccion", "Email", "FechaIngreso", "NombreUsuario", "Nombres", "RolId", "Sexo", "Telefono", "TipoUsuario" },
-                values: new object[] { 1, "Admin", "88888888888", "8888888888", "Admin", "SFM", "admin123@gmail.com", new DateTime(2021, 12, 5, 14, 8, 39, 293, DateTimeKind.Local).AddTicks(9447), "Admin", "Admin", 1, "Femenino", "8888888888", "Administrador" });
+                values: new object[] { 1, "Admin", "88888888888", "8888888888", "Admin", "SFM", "admin123@gmail.com", new DateTime(2021, 12, 5, 14, 58, 0, 995, DateTimeKind.Local).AddTicks(5999), "Admin", "Admin", 1, "Femenino", "8888888888", "Administrador" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_VentasDetalle_VentaId",

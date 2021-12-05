@@ -9,7 +9,7 @@ using ProyectoFinalAplicada.DAL;
 namespace ProyectoFinalAplicada.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20211205180843_Migracion")]
+    [Migration("20211205185806_Migracion")]
     partial class Migracion
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -98,7 +98,7 @@ namespace ProyectoFinalAplicada.Migrations
                             Contrasena = "Admin",
                             Direccion = "SFM",
                             Email = "admin123@gmail.com",
-                            FechaIngreso = new DateTime(2021, 12, 5, 14, 8, 39, 293, DateTimeKind.Local).AddTicks(9447),
+                            FechaIngreso = new DateTime(2021, 12, 5, 14, 58, 0, 995, DateTimeKind.Local).AddTicks(5999),
                             NombreUsuario = "Admin",
                             Nombres = "Admin",
                             RolId = 1,

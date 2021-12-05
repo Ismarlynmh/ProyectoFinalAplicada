@@ -96,7 +96,7 @@ namespace ProyectoFinalAplicada.Migrations
                             Contrasena = "Admin",
                             Direccion = "SFM",
                             Email = "admin123@gmail.com",
-                            FechaIngreso = new DateTime(2021, 12, 5, 14, 8, 39, 293, DateTimeKind.Local).AddTicks(9447),
+                            FechaIngreso = new DateTime(2021, 12, 5, 14, 58, 0, 995, DateTimeKind.Local).AddTicks(5999),
                             NombreUsuario = "Admin",
                             Nombres = "Admin",
                             RolId = 1,
