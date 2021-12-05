@@ -23,6 +23,14 @@ namespace ProyectoFinalAplicada
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        public static int usuarioSiempreActivoId;
+        Usuarios usuario = new Usuarios();
+        public MainWindow(int UsuarioId)
+        {
+            InitializeComponent();
+            usuarioSiempreActivoId = UsuarioId;
+        }
         public MainWindow()
         {
             InitializeComponent();
@@ -37,7 +45,8 @@ namespace ProyectoFinalAplicada
 
         private void VentasMenuItem_Click(object sender, RoutedEventArgs e)
         {
-
+            rVentas rVentas = new rVentas();
+            rVentas.Show();
         }
 
         private void ComprasMenuItem_Click(object sender, RoutedEventArgs e)
@@ -75,7 +84,8 @@ namespace ProyectoFinalAplicada
 
         private void ConsultarVentasMenuItem_Click(object sender, RoutedEventArgs e)
         {
-
+            cVentas cVentas = new cVentas();
+            cVentas.Show();
         }
 
         private void ConsultarComprasMenuItem_Click(object sender, RoutedEventArgs e)
@@ -84,11 +94,6 @@ namespace ProyectoFinalAplicada
         }
 
         private void ConsultarSuplidoresMenuItem_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void ConsultarRolesMenuItem_Click(object sender, RoutedEventArgs e)
         {
 
         }
