@@ -24,7 +24,6 @@ namespace ProyectoFinalAplicada
 
         List<Usuarios> lista = new List<Usuarios>();
         public int UsuarioId;
-
         public LogIn()
         {
             InitializeComponent();

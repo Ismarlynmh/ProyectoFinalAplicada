@@ -35,7 +35,13 @@ namespace ProyectoFinalAplicada
         {
             InitializeComponent();
         }
-
+        public static Usuarios user { get; set; }
+        
+        public MainWindow(Usuarios usuario)
+        {
+            InitializeComponent();
+            user = usuario;
+        }
         private void UsuarioMenuItem_Click(object sender, RoutedEventArgs e)
         {
 
