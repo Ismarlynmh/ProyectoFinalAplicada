@@ -8,7 +8,7 @@
        Title="Registrar Roles" Height="200" Width="300" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
     <Grid>
         <StackPanel Orientation="Vertical" Margin="10,10,10,10">
-            <!--Permiso Id-->
+            <!--Rol Id-->
             <Label Content="Rol Id" FontSize="15"/>
             <StackPanel Orientation="Horizontal">
                 <TextBox Name="RolIdTextBox" Height="20" Width="200" Text="{Binding RolId}"  HorizontalAlignment="Left" Margin="5,0"/>
