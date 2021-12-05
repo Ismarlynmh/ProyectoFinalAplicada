@@ -12,6 +12,7 @@ namespace ProyectoFinalAplicada.Entidades
     {
         [Key]
         public int UsuarioId { get; set; }
+        public int RolId { get; set; }
         public string Nombres { get; set; }
         public string Apellidos { get; set; }
         public string Cedula { get; set; }
@@ -27,6 +28,7 @@ namespace ProyectoFinalAplicada.Entidades
         public Usuarios()
         {
             UsuarioId = 0;
+            RolId = 0;
             Nombres = string.Empty;
             Apellidos = string.Empty;
             Cedula = string.Empty;
