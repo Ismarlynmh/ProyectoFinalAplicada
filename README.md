@@ -1,2 +1,14 @@
 # ProyectoFinalAplicada
 Proyecto final de programación aplicada 1 de Julio Cesar Jimeno Disla e Ismarlin Altagracia Mendoza Hernández
+
+# LogIn
+Los usuarios registrados son
+1-Usuario: @JulioCesarJimenoD
+julio
+Contraseña:
+Ucne2021 @
+2- Usuario: @Ismarlynmh
+ismarlyn
+Contraseña:
+UCNE2021 @
+![Captura de pantalla 2021-12-06 010016](https://user-images.githubusercontent.com/90530848/144790324-04943468-6e0a-4335-b3ec-771f5cafb4df.png)
