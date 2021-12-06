@@ -220,25 +220,6 @@ namespace ProyectoFinalAplicada.BLL
 
         }
 
-        public static List<Productos> GetProductos()
-        {
-            List<Productos> lista = new List<Productos>();
-            Contexto contexto = new Contexto();
-
-            try
-            {
-                lista = contexto.Productos.ToList();
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-            finally
-            {
-                contexto.Dispose();
-            }
-            return lista;
-        }
+        
     }
 }
