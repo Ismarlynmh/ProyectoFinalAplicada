@@ -28,6 +28,7 @@
 
 
             </MenuItem>
+            <TextBox x:Name="UsuarioActivoTextBox" Grid.Column="2" IsReadOnly="True" Foreground="Red" BorderBrush="Black" Width="104"/>
 
             <Image  Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" Source="/Resources/Copia de  Logo.jpg" Width="290" />
 
