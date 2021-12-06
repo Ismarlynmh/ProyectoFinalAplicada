@@ -23,8 +23,10 @@ namespace ProyectoFinalAplicada.Entidades
         public string Email { get; set; }
         public string TipoUsuario { get; set; }
         public DateTime FechaIngreso { get; set; }
-        public string NombreUsuario { get; set; }
-        public string Contrasena { get; set; }
+        public string NombreDeUsuario { get; set; }
+        public string Contraseña { get; set; }
+        public int CreadoPor { get; set; }
+
         public Usuarios()
         {
             UsuarioId = 0;
@@ -39,8 +41,8 @@ namespace ProyectoFinalAplicada.Entidades
             Email = string.Empty;
             FechaIngreso = DateTime.Now;
             TipoUsuario = string.Empty;
-            NombreUsuario = string.Empty;
-            Contrasena = string.Empty;
+            NombreDeUsuario = string.Empty;
+            Contraseña = string.Empty;
         }
     }
 }
