@@ -30,7 +30,7 @@ namespace ProyectoFinalAplicada.DAL
             modelBuilder.Entity<Roles>().HasData(new Roles
             {
                 RolId = 1,
-                Descripcion = "Admin"
+                Descripcion = "Empleado"
             }
 
             );
@@ -40,19 +40,49 @@ namespace ProyectoFinalAplicada.DAL
             {
                 UsuarioId = 1,
                 RolId = 1,
-                Nombres = "Admin",
-                Apellidos = "Admin",
-                Cedula = "88888888888",
-                Sexo = "Femenino",
-                Telefono = "8888888888",
-                Celular = "8888888888",
+                Nombres = "Julio César",
+                Apellidos = "Jimeno Disla",
+                Cedula = "40223489199",
+                Sexo = "Masculino",
+                Telefono = "8095884287",
+                Celular = "8294562890",
                 Direccion = "SFM",
-                Email = "admin123@gmail.com",
+                Email = "Jimeno207@gmail.com",
+                TipoUsuario = "Empleado",
+                FechaIngreso = DateTime.Now,
+                NombreDeUsuario = "julio",
+                Contraseña = "Ucne2021@"
+            }
+            );
+
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<Roles>().HasData(new Roles
+            {
+                RolId = 2,
+                Descripcion = "Administrador"
+            }
+
+            );
+
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<Usuarios>().HasData(new Usuarios
+            {
+                UsuarioId = 2,
+                RolId = 2,
+                Nombres = "Ismarlin Altagracia",
+                Apellidos = "Mendoza Hernández",
+                Cedula = "40212498188",
+                Sexo = "Femenino",
+                Telefono = "8095885751",
+                Celular = "8498852233",
+                Direccion = "SFM",
+                Email = "ismarlyn123@gmail.com",
                 TipoUsuario = "Administrador",
                 FechaIngreso = DateTime.Now,
-                NombreUsuario = "Admin",
-                Contrasena = "Admin"
+                NombreDeUsuario = "ismarlyn",
+                Contraseña = "UCNE2021@"
             }
+
 
 
             );
