@@ -15,7 +15,7 @@ namespace ProyectoFinalAplicada
     {
         private void Application_DispatcherUnhandledException(object sender, System.Windows.Threading.DispatcherUnhandledExceptionEventArgs e)
         {
-            MessageBox.Show("Lo sentimos, ha ocurrido una excepcion..." + e.Exception.Message);
+            MessageBox.Show($"Ocurrio una excepcion no controlada  {e.Exception.Message}");
             e.Handled = true;
         }
     }
