@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using ProyectoFinalAplicada.Entidades;
 using ProyectoFinalAplicada.UI.Consultas;
 using ProyectoFinalAplicada.UI.Registros;
+using ProyectoFinalAplicada.BLL;
 
 namespace ProyectoFinalAplicada
 {
@@ -23,24 +24,14 @@ namespace ProyectoFinalAplicada
     /// </summary>
     public partial class MainWindow : Window
     {
-
         public static int usuarioSiempreActivoId;
         Usuarios usuario = new Usuarios();
         public MainWindow(int UsuarioId)
         {
             InitializeComponent();
             usuarioSiempreActivoId = UsuarioId;
-        }
-        public MainWindow()
-        {
-            InitializeComponent();
-        }
-        public static Usuarios user { get; set; }
-        
-        public MainWindow(Usuarios usuario)
-        {
-            InitializeComponent();
-            user = usuario;
+            usuario = UsuariosBLL.Buscar(usuarioSiempreActivoId);
+            UsuarioActivoTextBox.Text = ("Usuario activo: " + usuario.NombreDeUsuario.ToString() + "\nID Usuario activo: " + usuario.UsuarioId.ToString());
         }
         private void UsuarioMenuItem_Click(object sender, RoutedEventArgs e)
         {
@@ -57,7 +48,7 @@ namespace ProyectoFinalAplicada
 
         private void ComprasMenuItem_Click(object sender, RoutedEventArgs e)
         {
-
+            
         }
 
         private void SuplidoresMenuItem_Click(object sender, RoutedEventArgs e)
@@ -78,7 +69,8 @@ namespace ProyectoFinalAplicada
 
         private void ProductosMenuItem_Click(object sender, RoutedEventArgs e)
         {
-
+            rProductos rProductos = new rProductos();
+            rProductos.Show();
         }
 
         private void ConsultarUsuariosMenuItem_Click(object sender, RoutedEventArgs e)
