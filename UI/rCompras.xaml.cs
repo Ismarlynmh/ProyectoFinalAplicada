@@ -217,42 +217,6 @@ namespace ProyectoFinalAplicada.UI
             }
         }
 
-        private void AgregarBoton_Click(object sender, RoutedEventArgs e)
-        {
-
-            if (CompraDetalleDataGrid.ItemsSource != null)
-            {
-                this.Detalle = (List<ComprasDetalle>)CompraDetalleDataGrid.ItemsSource;
-            }
-
-            if (!ValidarProductosId(Convert.ToInt32(ProductoIdTextBox.Text)))
-            {
-                MessageBox.Show("Producto Id no valido", "Error", MessageBoxButton.OK, MessageBoxImage.Information);
-                return;
-            }
-
-            this.Detalle.Add(new ComprasDetalle
-            {
-                Id = 0,
-                ProductoId = Convert.ToInt32(ProductoIdTextBox.Text),
-                Precio = Convert.ToInt32(PrecioTextBox.Text),
-                Cantidad = Convert.ToInt32(CantidadTextBox.Text)
-
-            });
-
-            CargarGrid();
-            AumentarSubTotal();
-            AumentarTotal();
-            int valor = Convert.ToInt32(CantidadTextBox.Text);
-            int id = Convert.ToInt32(ProductoIdTextBox.Text);
-            //ProductosBLL.AumentarInventario(id, valor); No se ensutra en la BLL
-
-
-            ProductoIdTextBox.Text = string.Empty;
-            CantidadTextBox.Text = string.Empty;
-            PrecioTextBox.Text = string.Empty;
-
-        }
         private void AumentarSubTotal() //Metodo para aumentar el subTotal
         {
             Cantidad = Convert.ToInt32(CantidadTextBox.Text);
@@ -356,8 +320,41 @@ namespace ProyectoFinalAplicada.UI
             }
         }
 
+        private void AgregarCompraBoton_Click(object sender, RoutedEventArgs e)
+        {
+
+            if (CompraDetalleDataGrid.ItemsSource != null)
+            {
+                this.Detalle = (List<ComprasDetalle>)CompraDetalleDataGrid.ItemsSource;
+            }
+
+            if (!ValidarProductosId(Convert.ToInt32(ProductoIdTextBox.Text)))
+            {
+                MessageBox.Show("Producto Id no valido", "Error", MessageBoxButton.OK, MessageBoxImage.Information);
+                return;
+            }
+
+            this.Detalle.Add(new ComprasDetalle
+            {
+                Id = 0,
+                ProductoId = Convert.ToInt32(ProductoIdTextBox.Text),
+                Precio = Convert.ToInt32(PrecioTextBox.Text),
+                Cantidad = Convert.ToInt32(CantidadTextBox.Text)
+
+            });
+
+            CargarGrid();
+            AumentarSubTotal();
+            AumentarTotal();
+            int valor = Convert.ToInt32(CantidadTextBox.Text);
+            int id = Convert.ToInt32(ProductoIdTextBox.Text);
+            //ProductosBLL.AumentarInventario(id, valor); No se ensutra en la BLL
 
 
+            ProductoIdTextBox.Text = string.Empty;
+            CantidadTextBox.Text = string.Empty;
+            PrecioTextBox.Text = string.Empty;
 
+        }
     }
 }
