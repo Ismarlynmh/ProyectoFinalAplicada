@@ -12,7 +12,7 @@ namespace ProyectoFinalAplicada.Entidades
     {
         [Key]
         public int ProductoId { get; set; }
-
+        public decimal Inventario { get; set; }
         public string Nombre { get; set; }
         public string Marca { get; set; }
         public int Cantidad { get; set; }
@@ -29,6 +29,7 @@ namespace ProyectoFinalAplicada.Entidades
             ProductoId = 0;
             Nombre = string.Empty;
             Marca = string.Empty;
+            Inventario = 0;
             Cantidad = 0;
             PrecioDeCompra = 0;
             PrecioDeVenta = 0;
