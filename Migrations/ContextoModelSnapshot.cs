@@ -172,13 +172,16 @@ namespace ProyectoFinalAplicada.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Apelido")
+                    b.Property<string>("Apellido")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Email")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Empresa")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("FechaIngreso")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Nombre")
@@ -251,11 +254,11 @@ namespace ProyectoFinalAplicada.Migrations
                             Apellidos = "Jimeno Disla",
                             Cedula = "40223489199",
                             Celular = "8294562890",
-                            Contraseña = "Ucne2021@",
+                            Contraseña = "ucne",
                             CreadoPor = 0,
                             Direccion = "SFM",
                             Email = "Jimeno207@gmail.com",
-                            FechaIngreso = new DateTime(2021, 12, 5, 23, 54, 23, 66, DateTimeKind.Local).AddTicks(1318),
+                            FechaIngreso = new DateTime(2021, 12, 6, 18, 10, 42, 781, DateTimeKind.Local).AddTicks(745),
                             NombreDeUsuario = "julio",
                             Nombres = "Julio César",
                             RolId = 1,
@@ -269,11 +272,11 @@ namespace ProyectoFinalAplicada.Migrations
                             Apellidos = "Mendoza Hernández",
                             Cedula = "40212498188",
                             Celular = "8498852233",
-                            Contraseña = "UCNE2021@",
+                            Contraseña = "ucne",
                             CreadoPor = 0,
                             Direccion = "SFM",
                             Email = "ismarlyn123@gmail.com",
-                            FechaIngreso = new DateTime(2021, 12, 5, 23, 54, 23, 80, DateTimeKind.Local).AddTicks(4586),
+                            FechaIngreso = new DateTime(2021, 12, 6, 18, 10, 42, 781, DateTimeKind.Local).AddTicks(3589),
                             NombreDeUsuario = "ismarlyn",
                             Nombres = "Ismarlin Altagracia",
                             RolId = 2,

@@ -85,10 +85,11 @@ namespace ProyectoFinalAplicada.Migrations
                     SuplidoreId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Nombre = table.Column<string>(type: "TEXT", nullable: true),
-                    Apelido = table.Column<string>(type: "TEXT", nullable: true),
+                    Apellido = table.Column<string>(type: "TEXT", nullable: true),
                     Telefono = table.Column<string>(type: "TEXT", nullable: true),
                     Empresa = table.Column<string>(type: "TEXT", nullable: true),
-                    Email = table.Column<string>(type: "TEXT", nullable: true)
+                    Email = table.Column<string>(type: "TEXT", nullable: true),
+                    FechaIngreso = table.Column<DateTime>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -195,12 +196,12 @@ namespace ProyectoFinalAplicada.Migrations
             migrationBuilder.InsertData(
                 table: "Usuarios",
                 columns: new[] { "UsuarioId", "Apellidos", "Cedula", "Celular", "Contraseña", "CreadoPor", "Direccion", "Email", "FechaIngreso", "NombreDeUsuario", "Nombres", "RolId", "Sexo", "Telefono", "TipoUsuario" },
-                values: new object[] { 1, "Jimeno Disla", "40223489199", "8294562890", "Ucne2021@", 0, "SFM", "Jimeno207@gmail.com", new DateTime(2021, 12, 5, 23, 54, 23, 66, DateTimeKind.Local).AddTicks(1318), "julio", "Julio César", 1, "Masculino", "8095884287", "Empleado" });
+                values: new object[] { 1, "Jimeno Disla", "40223489199", "8294562890", "ucne", 0, "SFM", "Jimeno207@gmail.com", new DateTime(2021, 12, 6, 18, 10, 42, 781, DateTimeKind.Local).AddTicks(745), "julio", "Julio César", 1, "Masculino", "8095884287", "Empleado" });
 
             migrationBuilder.InsertData(
                 table: "Usuarios",
                 columns: new[] { "UsuarioId", "Apellidos", "Cedula", "Celular", "Contraseña", "CreadoPor", "Direccion", "Email", "FechaIngreso", "NombreDeUsuario", "Nombres", "RolId", "Sexo", "Telefono", "TipoUsuario" },
-                values: new object[] { 2, "Mendoza Hernández", "40212498188", "8498852233", "UCNE2021@", 0, "SFM", "ismarlyn123@gmail.com", new DateTime(2021, 12, 5, 23, 54, 23, 80, DateTimeKind.Local).AddTicks(4586), "ismarlyn", "Ismarlin Altagracia", 2, "Femenino", "8095885751", "Administrador" });
+                values: new object[] { 2, "Mendoza Hernández", "40212498188", "8498852233", "ucne", 0, "SFM", "ismarlyn123@gmail.com", new DateTime(2021, 12, 6, 18, 10, 42, 781, DateTimeKind.Local).AddTicks(3589), "ismarlyn", "Ismarlin Altagracia", 2, "Femenino", "8095885751", "Administrador" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_ComprasDetalle_CompraId",
