@@ -77,6 +77,9 @@ namespace ProyectoFinalAplicada.UI.Consultas
             ConsultarDataGrid.ItemsSource = listado;
         }
 
-        
+        private void ConsultarDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
