@@ -29,6 +29,8 @@ namespace ProyectoFinalAplicada.UI.Registros
             InitializeComponent();
             usuarios = new Usuarios();
             this.DataContext = usuarios;
+            UsuarioIdTextBox.Text = "0";
+            FechaIngresoDateTimePicker.SelectedDate = DateTime.Now;
             RolIdComboBox.ItemsSource = RolesBLL.GetList(x => true);
             RolIdComboBox.SelectedValuePath = "RolId";
             RolIdComboBox.DisplayMemberPath = "Descripcion";
