@@ -133,7 +133,71 @@ namespace ProyectoFinalAplicada.BLL
             }
             return paso;
         }
+        public static bool DisminuirInventario(int id, int cantidad)
+        {
+            bool paso = false;
+            Contexto db = new Contexto();
+            Productos producto = new Productos();
+            producto = db.Productos.Find(id);
 
+            if (producto != null)
+            {
+                try
+                {
+                    if (producto.Inventario > 0)
+                        producto.Inventario = (producto.Inventario - cantidad);
+
+
+                    db.Entry(producto).State = EntityState.Modified;
+                    paso = (db.SaveChanges() > 0);
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+                finally
+                {
+                    db.Dispose();
+                }
+            }
+
+            return paso;
+
+
+        }
+
+        //Metodo para Aumentar del inventario cuando se realice una venta
+        public static bool AumentarInventario(int id, int cantidad)
+        {
+            bool paso = false;
+            Contexto db = new Contexto();
+            Productos producto = new Productos();
+            producto = db.Productos.Find(id);
+
+            if (producto != null)
+            {
+                try
+                {
+                    producto.Inventario = (producto.Inventario + cantidad);
+
+
+                    db.Entry(producto).State = EntityState.Modified;
+                    paso = (db.SaveChanges() > 0);
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+                finally
+                {
+                    db.Dispose();
+                }
+            }
+
+            return paso;
+
+
+        }
         public static List<Productos> GetList(Expression<Func<Productos, bool>> cristerio)
         {
             List<Productos> lista = new List<Productos>();
