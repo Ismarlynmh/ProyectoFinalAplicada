@@ -37,7 +37,7 @@ namespace ProyectoFinalAplicada
             //Si existe usuario en base de datos
             foreach (var item in lista)
             {
-                if ((item.NombreUsuario == NombreDeUsuarioTextBox.Text) && (item.Contrasena == ContraseñaTextBox.Password))
+                if ((item.NombreDeUsuario == NombreDeUsuarioTextBox.Text) && (item.Contraseña == ContraseñaTextBox.Password))
                 {
                     UsuarioId = Convert.ToInt32(item.UsuarioId);
                     MainWindow main = new MainWindow(UsuarioId);
