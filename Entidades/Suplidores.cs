@@ -12,7 +12,7 @@ namespace ProyectoFinalAplicada.Entidades
         [Key]
         public int SuplidoreId { get; set; }
         public string Nombre { get; set; }
-        public string Apelido { get; set; }
+        public string Apellido { get; set; }
         public string Telefono { get; set; }
         public string Empresa { get; set; }
         public string Email { get; set; }
@@ -21,7 +21,7 @@ namespace ProyectoFinalAplicada.Entidades
         {
             SuplidoreId = 0;
             Nombre = string.Empty;
-            Apelido = string.Empty;
+            Apellido = string.Empty;
             Telefono = string.Empty;
             Empresa = string.Empty;
             Email = string.Empty;

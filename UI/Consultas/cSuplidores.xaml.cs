@@ -38,42 +38,31 @@ namespace ProyectoFinalAplicada.UI.Consultas
                         listado = SuplidoresBLL.GetList(x => true);
                         break;
 
+                    
+
                     case 1:
-                        int id;
-                        id = int.Parse(CriterioTextBox.Text);
-                        listado = SuplidoresBLL.GetList(x => x.SuplidorId == id);
+                        listado = SuplidoresBLL.GetList(x => x.Nombre == CriterioTextBox.Text);
                         break;
 
                     case 2:
-                        listado = SuplidoresBLL.GetList(x => x.NombreSuplidor == CriterioTextBox.Text);
+                        listado = SuplidoresBLL.GetList(x => x.Apellido == CriterioTextBox.Text);
                         break;
 
                     case 3:
-                        listado = SuplidoresBLL.GetList(x => x.Apellidos == CriterioTextBox.Text);
+                        listado = SuplidoresBLL.GetList(x => x.Empresa == CriterioTextBox.Text);
                         break;
 
+                   
                     case 4:
-                        listado = SuplidoresBLL.GetList(x => x.NombreCompania == CriterioTextBox.Text);
-                        break;
-
-                    case 5:
-                        listado = SuplidoresBLL.GetList(x => x.Direccion == CriterioTextBox.Text);
-                        break;
-
-                    case 6:
                         listado = SuplidoresBLL.GetList(x => x.Telefono == CriterioTextBox.Text);
                         break;
 
                  
-                    case 9:
+                    case 5:
                         listado = SuplidoresBLL.GetList(x => x.Email == CriterioTextBox.Text);
                         break;
 
-                    case 10:
-                        DateTime fecha = Convert.ToDateTime(CriterioTextBox.Text);
-                        listado = SuplidoresBLL.GetList(x => x.FechaIngreso.Date >= fecha.Date && x.FechaIngreso.Date <= fecha.Date);
-                        break;
-
+                 
                 }
             }
             else if (FiltrarComboBox.SelectedIndex == 10)
@@ -88,9 +77,6 @@ namespace ProyectoFinalAplicada.UI.Consultas
             ConsultarDataGrid.ItemsSource = listado;
         }
 
-        private void ConsultarDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
+        
     }
 }
