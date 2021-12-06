@@ -25,10 +25,8 @@ namespace ProyectoFinalAplicada.UI.Registros
         Ventas venta = new Ventas();
         
         public List<VentasDetalle> Detalle { get; set; }
-        // List<Productos> lista = new List<Productos>();
-        //private Productos producto;/// <summary>
-        /// 
-        /// </summary>
+         List<Productos> lista = new List<Productos>();
+        private Productos producto;
         private decimal SubTotal;
         private decimal Total;
         private int Cantidad;
@@ -92,7 +90,7 @@ namespace ProyectoFinalAplicada.UI.Registros
             Descuento = Convert.ToDecimal(DescuentoTextBox.Text);
             Total = (SubTotal + AplicaPorcentaje) - Descuento;
         }
-        /*private bool ValidarProductosId(int id)
+        private bool ValidarProductosId(int id)
         {
             lista = ProductosBLL.GetList(p => true);
             bool paso = false;
@@ -105,7 +103,7 @@ namespace ProyectoFinalAplicada.UI.Registros
                 }
             }
             return paso;
-        }*/
+        }
         private bool Validar()
         {
             bool paso = true;
@@ -227,7 +225,7 @@ namespace ProyectoFinalAplicada.UI.Registros
             AumentarTotal();
             int valor = Convert.ToInt32(CantidadTextBox.Text);
             int id = Convert.ToInt32(ProductoIdTextBox.Text);
-            /*ProductosBLL.DisminuirInventario(id, valor);*/
+            ProductosBLL.DisminuirInventario(id, valor);
 
             ProductoIdTextBox.Text = string.Empty;
             CantidadTextBox.Text = string.Empty;
