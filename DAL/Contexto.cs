@@ -51,7 +51,7 @@ namespace ProyectoFinalAplicada.DAL
                 TipoUsuario = "Empleado",
                 FechaIngreso = DateTime.Now,
                 NombreDeUsuario = "julio",
-                Contraseña = "Ucne2021@"
+                Contraseña = "ucne"
             }
             );
 
@@ -80,7 +80,7 @@ namespace ProyectoFinalAplicada.DAL
                 TipoUsuario = "Administrador",
                 FechaIngreso = DateTime.Now,
                 NombreDeUsuario = "ismarlyn",
-                Contraseña = "UCNE2021@"
+                Contraseña = "ucne"
             }
 
 
