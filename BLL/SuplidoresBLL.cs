@@ -136,14 +136,14 @@ namespace ProyectoFinalAplicada.BLL
             return suplidores;
         }
 
-        public static List<Suplidores> GetList(Expression<Func<Suplidores, bool>> cristerio)
+        public static List<Suplidores> GetList(Expression<Func<Suplidores, bool>> criterio)
         {
             List<Suplidores> lista = new List<Suplidores>();
             Contexto contexto = new Contexto();
 
             try
             {
-                lista = contexto.Suplidores.Where(cristerio).ToList();
+                lista = contexto.Suplidores.Where(criterio).ToList();
             }
             catch (Exception)
             {
