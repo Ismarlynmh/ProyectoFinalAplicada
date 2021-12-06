@@ -79,6 +79,28 @@ namespace ProyectoFinalAplicada.BLL
 
         }
 
+        public static bool Eliminar(int id)
+        {
+            bool paso = false;
+            Contexto db = new Contexto();
+            try
+            {
+                var eliminar = db.Empleados.Find(id);
+                db.Entry(eliminar).State = EntityState.Deleted;
+                paso = (db.SaveChanges() > 0);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                db.Dispose();
+            }
+            return paso;
+        }
+
         /// <summary>
         /// Permite modificar una entidad en la base de datos
         /// </summary>
@@ -113,7 +135,7 @@ namespace ProyectoFinalAplicada.BLL
         /// <param name="id">El id de la entidad que se desea buscar</param>
         /// 
 
-        public static Empleados Busacar(int id)
+        public static Empleados Buscar(int id)
         {
             Contexto contexto = new Contexto();
             Empleados empleados;
