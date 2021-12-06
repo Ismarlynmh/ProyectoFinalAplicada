@@ -16,6 +16,7 @@ namespace ProyectoFinalAplicada.Entidades
         public string Telefono { get; set; }
         public string Empresa { get; set; }
         public string Email { get; set; }
+        public DateTime FechaIngreso { get; set; }
 
         public Suplidores()
         {
@@ -24,6 +25,7 @@ namespace ProyectoFinalAplicada.Entidades
             Apellido = string.Empty;
             Telefono = string.Empty;
             Empresa = string.Empty;
+            FechaIngreso = DateTime.Now;
             Email = string.Empty;
         }
     }
