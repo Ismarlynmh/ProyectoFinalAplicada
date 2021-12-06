@@ -1,0 +1,147 @@
+﻿<Window x:Class="ProyectoFinalAplicada.UI.rCompras"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProyectoFinalAplicada.UI"
+        mc:Ignorable="d"
+        Title="rCompras" Height="700" Width="900">
+    <Grid>
+        <StackPanel Orientation="Vertical" Margin="0,0,0,0">
+
+            <!--Compra Id-->
+            <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                <Label Content="Compra Id:" Width="81" Margin="0,0,5,0" FontSize="14" Padding="4"/>
+                <TextBox x:Name="CompraIdTextBox" Width="100"  HorizontalAlignment="Left" Height="20" Margin="0,0,0,0"  />
+                <Button x:Name="BuscarBoton"  Click="BuscarBoton_Click" Width="106" Margin="5,0" Background="LightSeaGreen" Foreground="White">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Resources/buscar (1).png"  Width="19" />
+                        <TextBlock Text="Buscar" Margin="0,0,10,0" FontSize="15" Padding="4"/>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+
+            <!---Fecha-->
+            <StackPanel Orientation="Vertical" Width="900" Height="58">
+                <Label Content="Fecha Creación" FontStyle="Oblique" FontFamily="Cursive"  FontSize="13"/>
+                <DatePicker x:Name="FechaDeCompraTimePicker" Width="265" HorizontalAlignment="Left" Margin="0,0" SelectedDate="{Binding Fecha}"/>
+            </StackPanel>
+
+            <!---Suplidor Id-->
+            <StackPanel Orientation="Vertical">
+                <Label Content="Suplidor Id" FontSize="13" />
+                <TextBox Height="20" x:Name="SuplidorIdTextBox" TextWrapping="Wrap" Width="100" HorizontalAlignment="Left" Margin="5,0" BorderBrush="Black" Text="{Binding SuplidorId}"/>
+            </StackPanel>
+
+            <!---ITBIS-->
+            <StackPanel Orientation="Vertical">
+                <Label Content="ITBIS" FontSize="13" />
+                <TextBox Height="20" x:Name="ITBISTextBox" TextWrapping="Wrap" Width="100" HorizontalAlignment="Left" Margin="5,0" BorderBrush="Black" Text="{Binding ITBIS}"/>
+            </StackPanel>
+
+            <!---Descuento-->
+            <StackPanel Orientation="Vertical">
+                <Label Content="Descuento" FontSize="13" />
+                <TextBox Height="20" x:Name="DescuentoTextBox" TextWrapping="Wrap" Width="100" HorizontalAlignment="Left" Margin="5,0" BorderBrush="Black" Text="{Binding Descuento}"/>
+            </StackPanel>
+
+            <!---Grupo agregar-->
+            <GroupBox Height="270" Header="Detalle de compras" FontSize="13" BorderBrush="Black" Margin="0,15,0,15" Width="900">
+                <StackPanel>
+                    <StackPanel Height="43" Orientation="Horizontal" Width="800">
+                        <StackPanel Height="53" Width="136" Orientation="Vertical">
+                            <Label Content="Producto Id" FontSize="12" Padding="-1" Margin="0,0,0,0"/>
+                            <TextBox x:Name="ProductoIdTextBox" FontSize="20" Padding="-1" Margin="0,0,0,0"/>
+                        </StackPanel>
+
+                        <StackPanel Height="54" Width="168" Orientation="Vertical">
+                            <Label Content="CompraId" FontSize="12" Padding="-1" Margin="6,0,0,0"/>
+                            <TextBox x:Name="ComprasIdTextBox" FontSize="20" Padding="-1" Margin="6,0,0,0"  />
+                        </StackPanel>
+
+                        <StackPanel Height="54" Width="168" Orientation="Vertical">
+                            <Label Content="Precio" FontSize="12" Padding="-1" Margin="6,0,0,0"/>
+                            <TextBox x:Name="PrecioTextBox" FontSize="20" Padding="-1" Margin="6,0,0,0"/>
+                        </StackPanel>
+
+                        <StackPanel Height="54" Width="168" Orientation="Vertical">
+                            <Label Content="Cantidad" FontSize="12" Padding="-1" Margin="6,0,0,0"/>
+                            <TextBox x:Name="CantidadTextBox" FontSize="20" Padding="-1" Margin="6,0,0,0"/>
+                        </StackPanel>
+                        <Button x:Name="AgregarCompraBoton" Height="30" Width="126"  Background="LightSeaGreen" Click="AgregarCompraBoton_Click">
+                            <StackPanel Orientation="Horizontal"  >
+                                <Image Source="/Resources/disco (1).png" Width="33" Margin="-8,0,5,0"/>
+                                <Label Content="Agregar" FontSize="17" Padding="-1" Width="76" Height="23"  Foreground="White" />
+                            </StackPanel>
+                        </Button>
+
+                    </StackPanel>
+
+                    <DataGrid x:Name="CompraDetalleDataGrid" Height="165" AutoGenerateColumns="False" Margin="0,5,0,0" ItemsSource="{Binding Detalle}" IsReadOnly="True">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn x:Name="IdDataGridTextColum" Header="Id" Width="1*" Binding="{Binding Id}"/>
+                            <DataGridTextColumn x:Name="ProductoIdDataGridTextColum" Header="Producto Id" Width="2*" Binding="{Binding ProductoId}"/>
+                            <DataGridTextColumn x:Name="CompraIdDataGridTextColum" Header="Compra Id" Width="3*" Binding="{Binding CompraId}"/>
+                            <DataGridTextColumn x:Name="PrecioDataGridTextColum" Header="Precio" Width="3*" Binding="{Binding Precio}"/>
+                            <DataGridTextColumn x:Name="CantidadDataGridTextColum" Header="Cantidad" Width="3*" Binding="{Binding Cantidad}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                    <Button x:Name="RemoverBoton" Height="20" Margin="0,5,0,0" Width="163" HorizontalAlignment="Left" Click="RemoverBoton_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Resources/trash.png" Width="17"/>
+                            <Label Content="Remover" FontSize="12" Padding="-1" />
+                        </StackPanel>
+                    </Button>
+
+                </StackPanel>
+            </GroupBox>
+            <StackPanel Orientation="Horizontal" >
+                <StackPanel Orientation="Horizontal" Margin="0,0,50,0" Width="326" Height="30">
+
+                    <!--Nuevo-->
+                    <Button x:Name="NuevoBoton" Margin="5,0" Width="100" Height="31" Background="LightSeaGreen" Click="NuevoBoton_Click" >
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Resources/file-add.png" />
+                            <Label Content="Nuevo"/>
+                        </StackPanel>
+                    </Button>
+
+                    <!--Guardar-->
+                    <Button x:Name="GuardarBoton" Margin="5,0" Width="100" Height="34" Background="LightSeaGreen" Click="GuardarBoton_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Resources/disco (1).png" Width="20"/>
+                            <Label Content="Guardar" Width="60"/>
+                        </StackPanel>
+                    </Button>
+
+                    <!--Eliminar-->
+                    <Button x:Name="EliminarBoton" Width="100" Height="32" Background="LightSeaGreen" Click="EliminarBoton_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Resources/file-add.png" Width="20" />
+                            <Label Content="Eliminar" Width="77"/>
+                        </StackPanel>
+                    </Button>
+
+
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Label Content="SubTotal: " Margin="0,0,5,0" FontSize="13" />
+                    <TextBox x:Name="SubTotalTextBox" Height="20" Width="150" IsReadOnly="True" TextWrapping="Wrap" HorizontalAlignment="Left" Margin="-5,3,5,0"  BorderBrush="Black" TextChanged="SubTotalTextBox_TextChanged" />
+                </StackPanel>
+
+                <!--Total-->
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Total: " Margin="0,0,5,0" FontSize="13" />
+                    <TextBox x:Name="TotalTextBox" Height="20" Width="150" IsReadOnly="True" TextWrapping="Wrap" HorizontalAlignment="Left" Margin="-5,3,5,0"  BorderBrush="Black" TextChanged="TotalTextBox_TextChanged" />
+                </StackPanel>
+
+            </StackPanel>
+
+
+            <!--Barra de BOTONES-->
+
+        </StackPanel>
+    </Grid>
+</Window>

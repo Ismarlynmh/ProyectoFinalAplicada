@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using ProyectoFinalAplicada.Entidades;
 using ProyectoFinalAplicada.DAL;
 using System.Linq.Expressions;
+using Microsoft.EntityFrameworkCore;
 
 namespace ProyectoFinalAplicada.BLL
 {
