@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProyectoFinalAplicada.UI.Registros"
         mc:Ignorable="d"
-         Title="Formulario de Ventas" Height="700" Width="900">
+         Title="Formulario de Ventas" Height="600" Width="900">
     <Grid Background="White">
         <StackPanel Orientation="Vertical" Margin="0,0,0,0">
 
