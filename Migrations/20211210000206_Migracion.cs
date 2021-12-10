@@ -56,9 +56,7 @@ namespace ProyectoFinalAplicada.Migrations
                     Marca = table.Column<string>(type: "TEXT", nullable: true),
                     Cantidad = table.Column<int>(type: "INTEGER", nullable: false),
                     PrecioDeVenta = table.Column<decimal>(type: "TEXT", nullable: false),
-                    PrecioDeCompra = table.Column<decimal>(type: "TEXT", nullable: false),
-                    FechaIngreso = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    SuplidorId = table.Column<int>(type: "INTEGER", nullable: false)
+                    PrecioDeCompra = table.Column<decimal>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -132,7 +130,8 @@ namespace ProyectoFinalAplicada.Migrations
                     SubTotal = table.Column<decimal>(type: "TEXT", nullable: false),
                     ITBIS = table.Column<double>(type: "REAL", nullable: false),
                     Descuento = table.Column<decimal>(type: "TEXT", nullable: false),
-                    Total = table.Column<decimal>(type: "TEXT", nullable: false)
+                    Total = table.Column<decimal>(type: "TEXT", nullable: false),
+                    ProductoId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -170,11 +169,18 @@ namespace ProyectoFinalAplicada.Migrations
                     ProductoId = table.Column<int>(type: "INTEGER", nullable: false),
                     VentaId = table.Column<int>(type: "INTEGER", nullable: false),
                     Cantidad = table.Column<int>(type: "INTEGER", nullable: false),
-                    Precio = table.Column<decimal>(type: "TEXT", nullable: false)
+                    Precio = table.Column<decimal>(type: "TEXT", nullable: false),
+                    ProductooId = table.Column<int>(type: "INTEGER", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_VentasDetalle", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_VentasDetalle_Productos_ProductooId",
+                        column: x => x.ProductooId,
+                        principalTable: "Productos",
+                        principalColumn: "ProductoId",
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_VentasDetalle_Ventas_VentaId",
                         column: x => x.VentaId,
@@ -196,17 +202,22 @@ namespace ProyectoFinalAplicada.Migrations
             migrationBuilder.InsertData(
                 table: "Usuarios",
                 columns: new[] { "UsuarioId", "Apellidos", "Cedula", "Celular", "Contraseña", "CreadoPor", "Direccion", "Email", "FechaIngreso", "NombreDeUsuario", "Nombres", "RolId", "Sexo", "Telefono", "TipoUsuario" },
-                values: new object[] { 1, "Jimeno Disla", "40223489199", "8294562890", "ucne", 0, "SFM", "Jimeno207@gmail.com", new DateTime(2021, 12, 6, 18, 10, 42, 781, DateTimeKind.Local).AddTicks(745), "julio", "Julio César", 1, "Masculino", "8095884287", "Empleado" });
+                values: new object[] { 1, "Jimeno Disla", "40223489199", "8294562890", "ucne", 0, "SFM", "Jimeno207@gmail.com", new DateTime(2021, 12, 9, 20, 2, 1, 141, DateTimeKind.Local).AddTicks(7418), "julio", "Julio César", 1, "Masculino", "8095884287", "Empleado" });
 
             migrationBuilder.InsertData(
                 table: "Usuarios",
                 columns: new[] { "UsuarioId", "Apellidos", "Cedula", "Celular", "Contraseña", "CreadoPor", "Direccion", "Email", "FechaIngreso", "NombreDeUsuario", "Nombres", "RolId", "Sexo", "Telefono", "TipoUsuario" },
-                values: new object[] { 2, "Mendoza Hernández", "40212498188", "8498852233", "ucne", 0, "SFM", "ismarlyn123@gmail.com", new DateTime(2021, 12, 6, 18, 10, 42, 781, DateTimeKind.Local).AddTicks(3589), "ismarlyn", "Ismarlin Altagracia", 2, "Femenino", "8095885751", "Administrador" });
+                values: new object[] { 2, "Mendoza Hernández", "40212498188", "8498852233", "ucne", 0, "SFM", "ismarlyn123@gmail.com", new DateTime(2021, 12, 9, 20, 2, 1, 141, DateTimeKind.Local).AddTicks(9782), "ismarlyn", "Ismarlin Altagracia", 2, "Femenino", "8095885751", "Administrador" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_ComprasDetalle_CompraId",
                 table: "ComprasDetalle",
                 column: "CompraId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_VentasDetalle_ProductooId",
+                table: "VentasDetalle",
+                column: "ProductooId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_VentasDetalle_VentaId",
@@ -223,9 +234,6 @@ namespace ProyectoFinalAplicada.Migrations
                 name: "Empleados");
 
             migrationBuilder.DropTable(
-                name: "Productos");
-
-            migrationBuilder.DropTable(
                 name: "Roles");
 
             migrationBuilder.DropTable(
@@ -239,6 +247,9 @@ namespace ProyectoFinalAplicada.Migrations
 
             migrationBuilder.DropTable(
                 name: "Compras");
+
+            migrationBuilder.DropTable(
+                name: "Productos");
 
             migrationBuilder.DropTable(
                 name: "Ventas");

@@ -57,11 +57,6 @@ namespace ProyectoFinalAplicada
             rCompras.Show();
         }
 
-        private void SuplidoresMenuItem_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void RolesMenuItem_Click(object sender, RoutedEventArgs e)
         {
             rRoles rRoles = new rRoles();

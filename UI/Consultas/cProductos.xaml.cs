@@ -53,22 +53,8 @@ namespace ProyectoFinalAplicada.UI.Consultas
                         listado = ProductosBLL.GetList(x => x.Marca == CriterioTextBox.Text);
                         break;
 
-                    case 4:
-                        DateTime fecha = Convert.ToDateTime(CriterioTextBox.Text);
-                        listado = ProductosBLL.GetList(x => x.FechaIngreso.Date >= fecha.Date && x.FechaIngreso.Date <= fecha.Date);
-                        break;
-
-                    case 5:
-                        int idS;
-                        idS = int.Parse(CriterioTextBox.Text);
-                        listado = ProductosBLL.GetList(x => x.SuplidorId == idS);
-                        break;
 
                 }
-            }
-            else if (FiltrarComboBox.SelectedIndex == 4)
-            {
-                listado = ProductosBLL.GetList(x => x.FechaIngreso.Date >= DesdeDateTimePicker.SelectedDate && x.FechaIngreso.Date <= HastaDateTimePicker.SelectedDate);
             }
             else
             {

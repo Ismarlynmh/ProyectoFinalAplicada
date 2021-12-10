@@ -18,11 +18,8 @@ namespace ProyectoFinalAplicada.Entidades
         public int Cantidad { get; set; }
         public decimal PrecioDeVenta { get; set; }
         public decimal PrecioDeCompra { get; set; }
-        public DateTime FechaIngreso { get; set; }
 
 
-        [ForeignKey("Suplidores")]
-        public int SuplidorId { get; set; }
 
         public Productos()
         {
@@ -33,8 +30,6 @@ namespace ProyectoFinalAplicada.Entidades
             Cantidad = 0;
             PrecioDeCompra = 0;
             PrecioDeVenta = 0;
-            FechaIngreso = DateTime.Now;
-            SuplidorId = 0;
         }
     }
 }

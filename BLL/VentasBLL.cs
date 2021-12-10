@@ -51,7 +51,7 @@ namespace ProyectoFinalAplicada.BLL
             {
                 foreach (var item in venta.Detalle)
                 {
-                    contexto.Entry(item.ProductoId).State = EntityState.Modified;
+                    contexto.Entry(item.Productos).State = EntityState.Modified;
                 }
                 contexto.Ventas.Add(venta);
                 ok = contexto.SaveChanges() > 0;
@@ -77,7 +77,7 @@ namespace ProyectoFinalAplicada.BLL
                 db.Database.ExecuteSqlRaw($"Delete FROM VentasDetalles where VentaId = {venta.VentaId}");
                 foreach (var item in venta.Detalle)
                 {
-                    db.Entry(item).State = EntityState.Added;
+                    db.Entry(item.Productos).State = EntityState.Added;
                 }
                 db.Entry(venta).State = EntityState.Modified;
                 paso = (db.SaveChanges() > 0);

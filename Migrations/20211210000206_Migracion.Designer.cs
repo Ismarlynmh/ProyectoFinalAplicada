@@ -9,7 +9,7 @@ using ProyectoFinalAplicada.DAL;
 namespace ProyectoFinalAplicada.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20211206221051_Migracion")]
+    [Migration("20211210000206_Migracion")]
     partial class Migracion
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -116,9 +116,6 @@ namespace ProyectoFinalAplicada.Migrations
                     b.Property<int>("Cantidad")
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTime>("FechaIngreso")
-                        .HasColumnType("TEXT");
-
                     b.Property<decimal>("Inventario")
                         .HasColumnType("TEXT");
 
@@ -133,9 +130,6 @@ namespace ProyectoFinalAplicada.Migrations
 
                     b.Property<decimal>("PrecioDeVenta")
                         .HasColumnType("TEXT");
-
-                    b.Property<int>("SuplidorId")
-                        .HasColumnType("INTEGER");
 
                     b.HasKey("ProductoId");
 
@@ -260,7 +254,7 @@ namespace ProyectoFinalAplicada.Migrations
                             CreadoPor = 0,
                             Direccion = "SFM",
                             Email = "Jimeno207@gmail.com",
-                            FechaIngreso = new DateTime(2021, 12, 6, 18, 10, 42, 781, DateTimeKind.Local).AddTicks(745),
+                            FechaIngreso = new DateTime(2021, 12, 9, 20, 2, 1, 141, DateTimeKind.Local).AddTicks(7418),
                             NombreDeUsuario = "julio",
                             Nombres = "Julio César",
                             RolId = 1,
@@ -278,7 +272,7 @@ namespace ProyectoFinalAplicada.Migrations
                             CreadoPor = 0,
                             Direccion = "SFM",
                             Email = "ismarlyn123@gmail.com",
-                            FechaIngreso = new DateTime(2021, 12, 6, 18, 10, 42, 781, DateTimeKind.Local).AddTicks(3589),
+                            FechaIngreso = new DateTime(2021, 12, 9, 20, 2, 1, 141, DateTimeKind.Local).AddTicks(9782),
                             NombreDeUsuario = "ismarlyn",
                             Nombres = "Ismarlin Altagracia",
                             RolId = 2,
@@ -302,6 +296,9 @@ namespace ProyectoFinalAplicada.Migrations
 
                     b.Property<double>("ITBIS")
                         .HasColumnType("REAL");
+
+                    b.Property<int>("ProductoId")
+                        .HasColumnType("INTEGER");
 
                     b.Property<decimal>("SubTotal")
                         .HasColumnType("TEXT");
@@ -329,10 +326,15 @@ namespace ProyectoFinalAplicada.Migrations
                     b.Property<int>("ProductoId")
                         .HasColumnType("INTEGER");
 
+                    b.Property<int?>("ProductooId")
+                        .HasColumnType("INTEGER");
+
                     b.Property<int>("VentaId")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ProductooId");
 
                     b.HasIndex("VentaId");
 
@@ -350,11 +352,17 @@ namespace ProyectoFinalAplicada.Migrations
 
             modelBuilder.Entity("ProyectoFinalAplicada.Entidades.VentasDetalle", b =>
                 {
+                    b.HasOne("ProyectoFinalAplicada.Entidades.Productos", "Productos")
+                        .WithMany()
+                        .HasForeignKey("ProductooId");
+
                     b.HasOne("ProyectoFinalAplicada.Entidades.Ventas", null)
                         .WithMany("Detalle")
                         .HasForeignKey("VentaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Productos");
                 });
 
             modelBuilder.Entity("ProyectoFinalAplicada.Entidades.Compras", b =>

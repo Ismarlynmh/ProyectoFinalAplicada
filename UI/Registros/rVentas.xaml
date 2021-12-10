@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProyectoFinalAplicada.UI.Registros"
         mc:Ignorable="d"
-         Title="Formulario de Ventas" Height="600" Width="900">
+         Title="Formulario de Ventas" Height="720" Width="900">
     <Grid Background="White">
         <StackPanel Orientation="Vertical" Margin="0,0,0,0">
 
@@ -27,6 +27,8 @@
                 <DatePicker x:Name="FechaVentaDateTimePicker" Width="265" HorizontalAlignment="Left" Margin="0,0" SelectedDate="{Binding Fecha}"/>
             </StackPanel>
 
+           
+
             <!---ITBIS-->
             <StackPanel Orientation="Vertical">
                 <Label Content="ITBIS" FontSize="13" />
@@ -38,9 +40,15 @@
                 <Label Content="Descuento" FontSize="13" />
                 <TextBox Height="20" x:Name="DescuentoTextBox" TextWrapping="Wrap" Width="100" HorizontalAlignment="Left" Margin="5,0" BorderBrush="Black" Text="{Binding Descuento}"/>
             </StackPanel>
+            
+            <StackPanel Orientation="Vertical" Width="300" HorizontalAlignment="Left" Margin="0,3,0,0" >
+                <Label Content="Producto Id" FontSize="13"  Margin="0,0,0,0" />
+                <ComboBox x:Name="ProductoIdComboBox" Height="20" SelectedValue="{Binding ProductoId}" Width="100" Margin="0,0,190,0" SelectionChanged="ProductoIdComboBox_SelectionChanged"/>
+            </StackPanel>
+
 
             <!---Grupo agregar-->
-            <GroupBox Height="270" Header="Detalle de ventas" FontSize="13" BorderBrush="Black" Margin="0,15,0,15" Width="900">
+            <GroupBox Height="270" Header="Detalle de ventas" FontSize="13" BorderBrush="Black" Margin="0,55,0,55" Width="900">
                 <StackPanel>
                     <StackPanel Height="43" Orientation="Horizontal" Width="800">
                         <StackPanel Height="53" Width="136" Orientation="Vertical">
@@ -72,13 +80,13 @@
 
                     </StackPanel>
 
-                    <DataGrid x:Name="VentasDataGrid" Height="165" AutoGenerateColumns="False" Margin="0,5,0,0" ItemsSource="{Binding Detalle}" IsReadOnly="True">
+                    <DataGrid x:Name="VentasDataGrid" Height="165" AutoGenerateColumns="False" Margin="0,5,0,0" IsReadOnly="True">
                         <DataGrid.Columns>
-                            <DataGridTextColumn x:Name="IdDataGridTextColum" Header="Id" Width="1*" Binding="{Binding Id}"/>
-                            <DataGridTextColumn x:Name="ProductoIdDataGridTextColum" Header="Producto Id" Width="2*" Binding="{Binding ProductoId}"/>
-                            <DataGridTextColumn x:Name="VentaIdDataGridTextColum" Header="Venta Id" Width="3*" Binding="{Binding VentaId}"/>
-                            <DataGridTextColumn x:Name="PrecioDataGridTextColum" Header="Precio" Width="3*" Binding="{Binding Precio}"/>
-                            <DataGridTextColumn x:Name="CantidadDataGridTextColum" Header="Cantidad" Width="3*" Binding="{Binding Cantidad}"/>
+                            <DataGridTextColumn  Header="Id" Width="1*" Binding="{Binding Id}" IsReadOnly="True" />
+                            <DataGridTextColumn  Header="ProductoId" Width="2*" Binding="{Binding ProductoId}" IsReadOnly="True" />
+                            <DataGridTextColumn  Header="VentaId" Width="3*" Binding="{Binding VentaId}" IsReadOnly="True" />
+                            <DataGridTextColumn  Header="Precio" Width="3*" Binding="{Binding Precio}" IsReadOnly="True" />
+                            <DataGridTextColumn  Header="Cantidad" Width="3*" Binding="{Binding Cantidad}" IsReadOnly="True" />
                         </DataGrid.Columns>
                     </DataGrid>
 

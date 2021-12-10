@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using ProyectoFinalAplicada.BLL;
 using ProyectoFinalAplicada.Entidades;
 using ProyectoFinalAplicada.UI.Consultas;
+using System.Text.RegularExpressions;
 
 namespace ProyectoFinalAplicada.UI.Registros
 {
@@ -22,11 +23,11 @@ namespace ProyectoFinalAplicada.UI.Registros
     /// </summary>
     public partial class rVentas : Window
     {
-        Ventas venta = new Ventas();
+        private Ventas venta = new Ventas();
         
         public List<VentasDetalle> Detalle { get; set; }
          List<Productos> lista = new List<Productos>();
-        private Productos producto;
+        private Productos producto = new Productos();
         private decimal SubTotal;
         private decimal Total;
         private int Cantidad;
@@ -40,17 +41,18 @@ namespace ProyectoFinalAplicada.UI.Registros
         {
             InitializeComponent();
             this.DataContext = venta;
+
             venta = new Ventas();
             this.Detalle = new List<VentasDetalle>();
             VentaIdTextBox.Text = "0";
             SubTotalTextBox.Text = "0";
             ITBISTextBox.Text = "18";
             DescuentoTextBox.Text = "0";
-            ProductoIdTextBox.Text = "0";
             PrecioTextBox.Text = "0";
             CantidadTextBox.Text = "0";
             TotalTextBox.Text = "0";
             FechaVentaDateTimePicker.SelectedDate = DateTime.Now;
+            LLenarComboProducto();
 
             Cargar();
 
@@ -149,9 +151,15 @@ namespace ProyectoFinalAplicada.UI.Registros
                 VentaIdTextBox.Focus();
             }
 
-            if (this.Detalle.Count == 0)
+            if (venta.Detalle.Count == 0)
             {
-                MessageBox.Show("La venta debe tener un producto", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("La venta debe tener un detalle", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                paso = false;
+            }
+            if (ProductoIdComboBox.SelectedValue == null)
+            {
+                
+                MessageBox.Show("Seleccione un articulo", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
                 paso = false;
             }
             return paso;
@@ -159,27 +167,7 @@ namespace ProyectoFinalAplicada.UI.Registros
          
         private void Limpiar()
         {
-            VentaIdTextBox.Text = "0";
-            SubTotalTextBox.Text = "0";
-            ITBISTextBox.Text = "18";
-            DescuentoTextBox.Text = "0";
-            ProductoIdTextBox.Text = "0";
-            PrecioTextBox.Text = "0";
-            CantidadTextBox.Text = "0";
-            TotalTextBox.Text = "0";
-            FechaVentaDateTimePicker.SelectedDate = DateTime.Now;
-
-            SubTotal = 0;
-            Total = 0;
-            Cantidad = 0;
-            Precio = 0;
-            Itbis = 0;
-            Bandera = 0;
-            AplicaPorcentaje = 0;
-            Porcentaje = 0;
-
-            Ventas venta = new Ventas();
-            this.Detalle = new List<VentasDetalle>();
+            venta = new Ventas();
             Cargar();
         }
 
@@ -192,31 +180,27 @@ namespace ProyectoFinalAplicada.UI.Registros
         }
         private void BuscarBoton_Click(object sender, RoutedEventArgs e)
         {
-            var registro = VentasBLL.Buscar(venta.VentaId);
-            if (registro != null)
+            var Ventas = VentasBLL.Buscar(Utilidades.ToInt(VentaIdTextBox.Text));
+
+            if (Ventas != null)
             {
-                venta = registro;
-                this.DataContext = venta;
+                venta = Ventas;
+                Cargar();
             }
             else
             {
-                MessageBox.Show("No se encontro el registro", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                Limpiar();
+                MessageBox.Show("No se pudo encontrar el registro", "Error", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
 
         private void AgregarBoton_Click(object sender, RoutedEventArgs e)
         {
-            var detalle = new VentasDetalle
-            {
-                ProductoId = int.Parse(ProductoIdTextBox.ToString())
-            };
-
-            this.Detalle.Add(new VentasDetalle
+            var ProductoId = (int)ProductoIdComboBox.SelectedValue;
+            this.venta.Detalle.Add(new VentasDetalle
             {
                 Id = 0,
-                ProductoId = Convert.ToInt32(ProductoIdTextBox.Text),
-                Precio = Convert.ToInt32(PrecioTextBox.Text),
-                Cantidad = Convert.ToInt32(CantidadTextBox.Text)
+                ProductoId = ProductoId,
 
             });
 
@@ -224,10 +208,10 @@ namespace ProyectoFinalAplicada.UI.Registros
             AumentarSubTotal();
             AumentarTotal();
             int valor = Convert.ToInt32(CantidadTextBox.Text);
-            int id = Convert.ToInt32(ProductoIdTextBox.Text);
+            int id = Convert.ToInt32(ProductoIdComboBox.SelectedIndex);
             ProductosBLL.DisminuirInventario(id, valor);
 
-            ProductoIdTextBox.Text = string.Empty;
+            ProductoIdComboBox.SelectedIndex = 0;
             CantidadTextBox.Text = string.Empty;
             PrecioTextBox.Text = string.Empty;
 
@@ -246,6 +230,17 @@ namespace ProyectoFinalAplicada.UI.Registros
             }
         }
 
+        private void LLenarComboProducto()
+        {
+            this.ProductoIdComboBox.ItemsSource = ProductosBLL.GetList(x => true);
+            this.ProductoIdComboBox.SelectedValuePath = "ProductoId";
+            this.ProductoIdComboBox.DisplayMemberPath = "MarcaProducto";
+
+            if (ProductoIdComboBox.Items.Count > 0)
+            {
+                ProductoIdComboBox.SelectedIndex = 0;
+            }
+        }
         private void NuevoBoton_Click(object sender, RoutedEventArgs e)
         {
                 Limpiar();
@@ -257,7 +252,9 @@ namespace ProyectoFinalAplicada.UI.Registros
             {
                 return;
             }
-            var ok = VentasBLL.Guardar(venta); ;
+
+                        var ok = VentasBLL.Guardar(venta); 
+
             if (ok)
             {
                 MessageBox.Show("Guardado", "Aviso", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -305,6 +302,15 @@ namespace ProyectoFinalAplicada.UI.Registros
             catch (Exception)
             {
                 return;
+            }
+        }
+
+        private void ProductoIdComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+            if (ProductoIdComboBox.SelectedIndex != -1)
+            {
+                producto = (Productos)ProductoIdComboBox.SelectedItem;
             }
         }
     }

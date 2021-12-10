@@ -16,7 +16,8 @@ namespace ProyectoFinalAplicada.Entidades
         public int VentaId { get; set; }
         public int Cantidad { get; set; }
         public decimal Precio { get; set; }
-
+        [ForeignKey("ProductooId")]
+        public virtual Productos Productos { get; set; }
         public VentasDetalle()
         {
             Id = 0;

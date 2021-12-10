@@ -22,12 +22,13 @@ namespace ProyectoFinalAplicada.UI.Registros
     /// </summary>
     public partial class rProductos : Window
     {
-        private Productos productos;
+        private Productos productos = new Productos();
 
         public rProductos()
         {
             InitializeComponent();
             this.DataContext = productos;
+            productos = new Productos();
             ProductoIdTextBox.Text = "0";
         }
         private void CloseWinBtn(object sender, RoutedEventArgs e)
@@ -42,8 +43,6 @@ namespace ProyectoFinalAplicada.UI.Registros
             InventarioTextBox.Text = "0";
             PrecioCompraTextBox.Text = "0";
             PrecioVentaTextBox.Text = "0";
-            //FechaIngresoDatePicker = DateTime.Now;
-            SuplidorIdTextBox.Text = "0";
 
         }
         private void Actualizar()

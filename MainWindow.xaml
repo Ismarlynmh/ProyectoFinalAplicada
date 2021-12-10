@@ -12,7 +12,6 @@
                 <MenuItem x:Name="UsuarioMenuItem" Header="Usuario" Click="UsuarioMenuItem_Click"/>
                 <MenuItem x:Name="VentasMenuItem" Header="Ventas" Click="VentasMenuItem_Click"/>
                 <MenuItem x:Name="ComprasMenuItem" Header="Compras" Click="ComprasMenuItem_Click"/>
-                <MenuItem x:Name="SuplidoresMenuItem" Header="Suplidores" Click="SuplidoresMenuItem_Click"/>
                 <MenuItem  x:Name="RolesMenuItem" Header="Roles" Click="RolesMenuItem_Click" />
                 <MenuItem x:Name="ProductosMenuItem" Header="Productos" Click="ProductosMenuItem_Click"/>
                 <MenuItem x:Name="EmpleadosMenuItem" Header="Empleados" Click="EmpleadosMenuItem_Click"/>
@@ -24,7 +23,6 @@
                 <MenuItem x:Name="ConsultarComprasMenuItem" Header="Consultar Compras" Click="ConsultarComprasMenuItem_Click"/>
                 <MenuItem x:Name="ConsultarSuplidoresMenuItem" Header="Consultar Suplidores" Click="ConsultarSuplidoresMenuItem_Click"/>
                 <MenuItem x:Name="ConsultarProductosMenuItem" Header="Consultar Productos" Click="ConsultarProductosMenuItem_Click"/>
-                <MenuItem x:Name="ConsultarEmpleadosMenuItem" Header="Consultar Empleados" Click="ConsultarEmpleadosMenuItem_Click"/>
 
 
             </MenuItem>
